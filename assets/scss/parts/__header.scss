@@ -1,0 +1,156 @@
+.header {
+    position: relative;
+    width: 100%;
+    padding: 10px 0 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color_2;
+    font-family: $font-family_1, sans-serif;
+
+    @media (min-width: 1280px) {
+        padding: 0;
+    }
+
+    &__brand {
+        font-size: 15px;
+        margin-left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        @media (min-width: 768px) {
+            font-size: 30px;
+        }
+        
+        @media (min-width: 1280px) {
+            font-size: 20px;
+        }
+    }
+
+    .menuToggle {
+        width: 30px;
+        height: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        margin-right: 20px;
+
+        @media (min-width: 768px) {
+            width: 40px;
+            height: 30px;
+        }
+
+        @media (min-width: 1280px) {
+            display: none;
+        }
+
+        span {
+            width: 100%;
+            height: 4px;
+            background-color: $color_1;
+
+            @media (min-width: 768px) {
+                height: 6px;
+            }
+            
+            &.topBar, &.middleBar, &.bottomBar {
+                transition: all ease-out 0.5s;
+            }
+
+            &.active-menu {
+                &.topBar {
+                  transform: translateY(200%) rotate(-45deg);
+                }
+                
+                &.bottomBar {
+                  transform: translateY(-200%) rotate(45deg);
+                }
+                
+                &.middleBar {
+                  opacity: 0;
+                }
+              }
+        }
+    }
+
+    &__navMobile {
+        display: none;
+        z-index: 100;
+        .menu-header-container {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            background-color: $color_1;
+
+            .menu {
+                width: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 30px;
+                font-size: 30px;
+                padding: 0;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                .menu-item {
+                    a {
+                        color: $color_2;
+                        font-weight: 700;
+                    }
+                }
+
+                @media (min-width: 768px) {
+                    font-size: 45px;
+                }
+
+            }
+        }
+    }
+
+    .active {
+        display: flex;
+        position: fixed;
+        top: 42.9px;
+        width: 100vw;
+        height: 100vh;
+        background-color: $color_3;
+        animation: fadeIn 400ms;
+
+        @media (min-width: 768px) {
+            top: 55.2px;
+        }
+    }
+
+    
+
+
+    &__navDesktop {
+        display: none;
+
+        @media (min-width: 1280px) {
+            display: flex;
+            .menu {
+                margin-right: 20px;
+                display: flex;
+                flex-direction: row;
+                gap: 30px;
+                font-size: 15px;
+                text-transform: uppercase;
+                cursor: pointer;
+
+                .sub-menu {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+.fixed {
+    position: fixed;
+    z-index: 100;
+}
