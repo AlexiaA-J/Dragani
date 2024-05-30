@@ -1,3 +1,31 @@
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../fonts/PlayfairDisplay-VariableFont_wght.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Playfair Display";
+  src: url("../../fonts/PlayfairDisplay-Italic-VariableFont_wght.woff2") format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../../fonts/OpenSans-VariableFont_wdth,wght.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Open Sans";
+  src: url("../../fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2") format("woff2");
+  font-display: swap;
+  font-style: italic;
+  font-weight: 400;
+}
 body {
   margin: auto;
   background-color: white;
@@ -9,7 +37,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: "Roboto";
+  font-family: "Open Sans";
   font-size: 16px;
   color: #fdbffd;
   font-weight: 500;
@@ -52,7 +80,6 @@ ul {
 }
 
 .header {
-  position: relative;
   width: 100%;
   padding: 10px 0 10px 0;
   display: flex;
@@ -60,7 +87,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   background-color: #fdbffd;
-  font-family: "UnicaOne", sans-serif;
+  font-family: "Playfair Display", sans-serif;
 }
 @media (min-width: 1280px) {
   .header {
@@ -68,11 +95,30 @@ ul {
   }
 }
 .header__brand {
-  font-size: 15px;
+  font-size: 12px;
+  font-weight: 700;
   margin-left: 20px;
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.header__brand .logo {
+  height: 50px;
+}
+@media (min-width: 768px) {
+  .header__brand .logo {
+    height: 150px;
+  }
+}
+@media (min-width: 1280px) {
+  .header__brand .logo {
+    height: 150px;
+  }
+}
+@media (min-width: 360px) {
+  .header__brand {
+    font-size: 15px;
+  }
 }
 @media (min-width: 768px) {
   .header__brand {
@@ -129,12 +175,13 @@ ul {
 .header__navMobile {
   display: none;
   z-index: 100;
+  font-weight: 700;
 }
 .header__navMobile .menu-header-container {
   width: 100%;
   display: flex;
   align-items: center;
-  background-color: black;
+  background-color: white;
 }
 .header__navMobile .menu-header-container .menu {
   width: 100%;
@@ -142,36 +189,61 @@ ul {
   flex-direction: column;
   align-items: center;
   gap: 30px;
-  font-size: 30px;
+  font-size: 15px;
   padding: 0;
   text-transform: uppercase;
   cursor: pointer;
+  margin-top: -30px;
 }
 .header__navMobile .menu-header-container .menu .menu-item a {
-  color: #fdbffd;
+  color: black;
   font-weight: 700;
+}
+@media (min-width: 360px) {
+  .header__navMobile .menu-header-container .menu {
+    font-size: 20px;
+  }
 }
 @media (min-width: 768px) {
   .header__navMobile .menu-header-container .menu {
-    font-size: 45px;
+    font-size: 30px;
+    margin-top: -150px;
+  }
+}
+.header__navMobile .menu-header-container .menu .sub-menu {
+  font-size: 13px;
+  list-style: inside;
+}
+.header__navMobile .menu-header-container .menu .sub-menu li::marker {
+  color: black;
+}
+@media (min-width: 768px) {
+  .header__navMobile .menu-header-container .menu .sub-menu {
+    font-size: 25px;
   }
 }
 .header .active {
   display: flex;
   position: fixed;
-  top: 42.9px;
+  top: 70.6px;
   width: 100vw;
   height: 100vh;
   background-color: white;
   animation: fadeIn 400ms;
 }
+@media (min-width: 360px) {
+  .header .active {
+    top: 70px;
+  }
+}
 @media (min-width: 768px) {
   .header .active {
-    top: 55.2px;
+    top: 170px;
   }
 }
 .header__navDesktop {
   display: none;
+  font-weight: 700;
 }
 @media (min-width: 1280px) {
   .header__navDesktop {
@@ -182,7 +254,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 30px;
-    font-size: 15px;
+    font-size: 18px;
     text-transform: uppercase;
     cursor: pointer;
   }
@@ -193,13 +265,13 @@ ul {
 
 .fixed {
   position: fixed;
-  z-index: 100;
+  z-index: 1000;
 }
 
 .footer {
   width: 100%;
   background-color: #fdbffd;
-  font-family: "UnicaOne";
+  font-family: "Open Sans";
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
@@ -207,9 +279,13 @@ ul {
   font-size: 16px;
   padding: 20px;
 }
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
   .footer {
     font-size: 20px;
+  }
+}
+@media (min-width: 1280px) {
+  .footer {
     flex-direction: row;
   }
 }

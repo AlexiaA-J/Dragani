@@ -1,5 +1,4 @@
 .header {
-    position: relative;
     width: 100%;
     padding: 10px 0 10px 0;
     display: flex;
@@ -14,12 +13,28 @@
     }
 
     &__brand {
-        font-size: 15px;
+        font-size: 12px;
+        font-weight: 700;
         margin-left: 20px;
         display: flex;
         align-items: center;
         gap: 10px;
 
+        .logo {
+            height: 50px;
+
+            @media (min-width: 768px) {
+                height: 150px;
+            }
+            
+            @media (min-width: 1280px) {
+                height: 150px;
+            }
+        }
+
+        @media (min-width: 360px) {
+            font-size: 15px;
+        }
         @media (min-width: 768px) {
             font-size: 30px;
         }
@@ -79,11 +94,12 @@
     &__navMobile {
         display: none;
         z-index: 100;
+        font-weight: 700;
         .menu-header-container {
             width: 100%;
             display: flex;
             align-items: center;
-            background-color: $color_1;
+            background-color: $color_3;
 
             .menu {
                 width: 100%;
@@ -91,20 +107,38 @@
                 flex-direction: column;
                 align-items: center;
                 gap: 30px;
-                font-size: 30px;
+                font-size: 15px;
                 padding: 0;
                 text-transform: uppercase;
                 cursor: pointer;
+                margin-top: -30px;
 
                 .menu-item {
                     a {
-                        color: $color_2;
+                        color: $color_1;
                         font-weight: 700;
                     }
                 }
 
+                @media (min-width: 360px) {
+                    font-size: 20px;
+                }
+
                 @media (min-width: 768px) {
-                    font-size: 45px;
+                    font-size: 30px;
+                    margin-top: -150px;
+                }
+
+                .sub-menu {
+                    font-size: 13px;
+                    list-style: inside;
+                    li::marker {
+                        color: $color_1;
+                    }
+
+                    @media (min-width: 768px) {
+                        font-size: 25px;
+                    }
                 }
 
             }
@@ -114,14 +148,18 @@
     .active {
         display: flex;
         position: fixed;
-        top: 42.9px;
+        top: 70.6px;
         width: 100vw;
         height: 100vh;
         background-color: $color_3;
         animation: fadeIn 400ms;
 
+        @media (min-width: 360px) {
+            top: 70px;
+        }
+
         @media (min-width: 768px) {
-            top: 55.2px;
+            top: 170px;
         }
     }
 
@@ -130,7 +168,7 @@
 
     &__navDesktop {
         display: none;
-
+        font-weight: 700;
         @media (min-width: 1280px) {
             display: flex;
             .menu {
@@ -138,7 +176,7 @@
                 display: flex;
                 flex-direction: row;
                 gap: 30px;
-                font-size: 15px;
+                font-size: 18px;
                 text-transform: uppercase;
                 cursor: pointer;
 
@@ -152,5 +190,5 @@
 
 .fixed {
     position: fixed;
-    z-index: 100;
+    z-index: 1000;
 }
